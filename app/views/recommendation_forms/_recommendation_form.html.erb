@@ -1,48 +1,50 @@
-<%= render "form_dynamic_css" %>
-<div class="recommendation_form">
-    <%= form_for @recommendation, url: "#{BASE_URL}/recommendations" do |f| %>
-        <%= f.label :email %>
-        <%= f.text_field :recipient_email %>
-        <%= f.label :comment %>
-        <%= f.text_area :comment %>
-        <input value="{{product.id}}" type="hidden" name="product[shopify_id]" />
-        <input value="{{product.title}}" type="hidden" name="product[title]" />
-        <input value="{{product.url}}" type="hidden" name="product[url]" />
-        <input value="{{product.price | money_with_currency}}" type="hidden" name="product[price]" />
-        <input value="{{customer.id}}" type="hidden" name="customer[shopify_id]"/>
-        <input value="{{customer.name}}" type="hidden" name="customer[name]" />
-        <input value="{{customer.email}}" type="hidden" name="customer[email]" />
-        <input value="{{shop.domain}}" type="hidden" name="shop[domain]" />
-        <input type="submit" name="commit" value="Send my recommendation!" class="btn" id="submit_btn"/>
-    <% end %>
-</div>
+<div id="recommendation_area">
+    <%= render "form_dynamic_css" %>
+    <div class="recommendation_form">
+        <%= form_for @recommendation do |f| %>
+            <%= f.label :email %>
+            <%= f.text_field :recipient_email %>
+            <%= f.label :comment %>
+            <%= f.text_area :comment %>
+            <input value="{{product.id}}" type="hidden" name="product[shopify_id]" />
+            <input value="{{product.title}}" type="hidden" name="product[title]" />
+            <input value="{{product.url}}" type="hidden" name="product[url]" />
+            <input value="{{product.price | money_with_currency}}" type="hidden" name="product[price]" />
+            <input value="{{customer.id}}" type="hidden" name="customer[shopify_id]"/>
+            <input value="{{customer.name}}" type="hidden" name="customer[name]" />
+            <input value="{{customer.email}}" type="hidden" name="customer[email]" />
+            <input value="{{shop.domain}}" type="hidden" name="shop[domain]" />
+            <input type="submit" name="commit" value="Send my recommendation!" class="btn" id="submit_btn"/>
+        <% end %>
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script> 
-    $(function(){
-        $("#new_recommendation").on('submit', function(event){
-            event.preventDefault();
-            $.ajax({
-                    url: 'https://52.24.103.172:3000/recommendations',
-                    type:'POST',
-                    data:$(this).serialize(),
-                    beforeSend: function() {
-                       $("#submit_btn").val("Sending...");
-                    },
-                    complete: function(data){
-                        $("#submit_btn").val(data.responseText);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script> 
+        $(function(){
+            $("#new_recommendation").on('submit', function(event){
+                event.preventDefault();
+                $.ajax({
+                        url: '<%= "#{BASE_URL}/recommendations" %>',
+                        type:'POST',
+                        data:$(this).serialize(),
+                        beforeSend: function() {
+                           $("#submit_btn").val("Sending...");
+                        },
+                        complete: function(data){
+                            $("#submit_btn").val(data.responseText);
 
-                        setTimeout(function(){
-                            $("#submit_btn").val("Send my recommendation!")
-                            ;$("#new_recommendation")[0].reset()
-                        },3000);
+                            setTimeout(function(){
+                                $("#submit_btn").val("Send my recommendation!")
+                                ;$("#new_recommendation")[0].reset()
+                            },3000);
 
-                    }
+                        }
 
+                });
             });
         });
-    });
-</script> 
+    </script> 
+</div>
 
 
 
