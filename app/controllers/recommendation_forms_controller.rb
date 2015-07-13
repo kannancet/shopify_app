@@ -10,7 +10,9 @@ class RecommendationFormsController < ApplicationController
   #Function to build new recommendation form
   def edit
   	@recommendation = Recommendation.new
+    @css = encode_css(parse_layout)
   end
+
 
   #Function to save CSS for new recommendationf form
   def update
@@ -42,6 +44,16 @@ class RecommendationFormsController < ApplicationController
   #Function to build path for edit
   def recommend_form_customization
   	edit_recommendation_form_path(@recommend_form)
+  end
+
+  #function to parse layout
+  def parse_layout
+    render_to_string(partial: "form_dynamic_css", layout: false)
+  end
+
+  #Function to encode CSS
+  def encode_css(layout)
+    layout.gsub!("<", "&lt;").gsub!(">", "&gt;")
   end
 
 end

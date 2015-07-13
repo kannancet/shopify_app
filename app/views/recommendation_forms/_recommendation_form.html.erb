@@ -1,29 +1,4 @@
-<div>
-<style type="text/css">
-  .recommendation_form form { 
-    display: inline-block;
-    padding: 20px;
-    background-color: <%= @recommend_form.border_color || '#d0de39' %>;
-    border-style: solid;
-    border-width: <%= @recommend_form.border_size || 10 %>px;
-    border-color: <%= @recommend_form.border_color || '#d15036'%>;
-    color: <%= @recommend_form.text_color || '#0d20ab' %>;
-    font-family: <%= @recommend_form.text_font_family || 'Helvetica Neue' %>;
-    width: 300px;
-  }
-
-  .recommendation_form .btn {
-    font-family: <%= @recommend_form.button_font_family || 'Helvetica Neue' %>;
-    background-color: <%= @recommend_form.button_color || '#35e3c0'%> ;
-    color: <%= @recommend_form.button_font_color || '#35e3c0'%>;
-  }
-
-  .recommendation_form input,textarea{
-    width: <%= @recommend_form.field_width || 100 %> %;
-    margin: 5px;
-  }  
-</style>
-
+<%= render "form_dynamic_css" %>
 <div class="recommendation_form">
     <%= form_for @recommendation, url: "#{BASE_URL}/recommendations" do |f| %>
         <%= f.label :email %>
@@ -48,7 +23,7 @@
         $("#new_recommendation").on('submit', function(event){
             event.preventDefault();
             $.ajax({
-                    url: 'https://52.24.103.172/recommendations',
+                    url: 'https://52.24.103.172:3000/recommendations',
                     type:'POST',
                     data:$(this).serialize(),
                     beforeSend: function() {
@@ -69,5 +44,5 @@
     });
 </script> 
 
-</div>
+
 
