@@ -6,6 +6,7 @@ gem "rails", "4.2.2"
 gem "shopify_app", "~> 6.0.0"
 gem "jquery-rails", "~> 4.0.4"
 gem "quiet_assets"
+gem "therubyracer", platforms: :ruby
 
 group :assets do
   gem "sass-rails"
@@ -16,7 +17,6 @@ end
 group :development, :test do
   gem "thin"
   gem "less-rails-bootstrap"
-  gem "therubyracer", platforms: :ruby
   gem "pry-rails"
   gem "sqlite3"
   gem "better_errors"
