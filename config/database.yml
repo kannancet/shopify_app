@@ -1,0 +1,30 @@
+# MySQL.  Versions 5.0+ are recommended.
+#
+# Install the MYSQL driver
+#   gem install mysql2
+#
+# Ensure the MySQL gem is defined in your Gemfile
+#   gem 'mysql2'
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+#
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: postgres
+  password: 
+  host: localhost
+
+development:
+  <<: *default
+  database: shopify_development
+
+staging:
+  <<: *default
+  database: shopify_staging
+
+production:
+  <<: *default
+  database: shopify_staging

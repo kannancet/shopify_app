@@ -1,0 +1,5 @@
+<ul class="section-tabs">
+    <li class="<%= render_active_tab[:tab1] %>"><a href="<%= edit_recommendation_form_path(@recommend_form)%>">Customize Recommendation</a></li>
+    <li class="<%= render_active_tab[:tab2] %>"><a href="<%= send_emails_recommendations_path %>">List of Send Emails</a></li>
+    <li class="<%= render_active_tab[:tab3] %>"><a href="<%= customer_profiles_recommendations_path %>">Customer Profiles</a></li>
+</ul>

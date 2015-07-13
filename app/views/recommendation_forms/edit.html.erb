@@ -1,0 +1,35 @@
+<div class="section-listing">
+	<div class="section-options">
+		<%= render "shared/navigation" %>
+		<div class="section-content">		
+				<%= render 'form_customization_widget' %>
+
+				<div class="section">
+					<div class="section-summary">
+						<h1>Preview </h1>
+						<p>View the output</p>
+					</div>
+					<div class="section-content">
+						<div class="section-row">
+							<%= render "recommendation_form" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="section">
+					<div class="section-summary">
+						<h1>Source Code</h1>
+						<p>Copy the code</p>
+					</div>
+					<div class="section-content">
+						<div class="section-row">
+							<code>
+							<%= raw(render text: "recommendation_form").html_safe %>
+							</code>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div> 
+

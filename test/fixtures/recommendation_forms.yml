@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  field_width: 1
+  border_color: MyString
+  border_size: 1
+  text_color: MyString
+  background_color: MyString
+  text_font_family: MyString
+  button_font_family: MyString
+  button_color: MyString
+
+two:
+  field_width: 1
+  border_color: MyString
+  border_size: 1
+  text_color: MyString
+  background_color: MyString
+  text_font_family: MyString
+  button_font_family: MyString
+  button_color: MyString

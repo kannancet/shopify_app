@@ -1,0 +1,88 @@
+
+<div class="section">
+    <div class="section-summary">
+        <h1>Recommendation</h1>
+        <p>Customize Your Form</p>
+    </div>
+    <div class="section-content">
+        <div class="section-row">
+            <div class="section-cell">
+                <!-- CONTENT BEGINNING -->
+                <%= form_for @recommend_form, url: {action: "update"} do |f| %>
+                    <div class="cell-container">
+                        <div class="cell-column">
+                           <div class="cell-container">
+                                <div class="cell-column">
+                                  <label>Width of Fields</label>
+                                  <%= f.text_field :field_width %>
+                                </div>
+                                <div class="cell-column">
+                                  <label>Border Color</label>
+                                  <%= f.text_field :border_color, class: 'color-picker'%>
+                                </div>                                 
+                           </div>
+
+                           <div class="cell-container">
+                                <div class="cell-column">
+                                  <label>Border Size</label>
+                                  <%= f.text_field :border_size %>
+                                </div>
+                                <div class="cell-column">
+                                  <label>Color of Text</label>
+                                  <%= f.text_field :text_color, class: 'color-picker' %>
+                                </div>                                 
+                           </div>
+
+                          <div class="cell-container">
+                                <div class="cell-column">
+                                  <%= f.submit "Save & Preview", class: "btn primary" %>
+                                </div>
+                                <div class="cell-column">
+                                  <%= link_to "Reset Form", recommendation_form_reset_form_path(@recommend_form), class: "btn primary" %>
+                                </div> 
+                          </div>
+
+                        </div>
+
+                        <div class="cell-column">
+                           <div class="cell-container">
+                                <div class="cell-column">
+                                  <label>Background color</label>
+                                  <%= f.text_field :background_color, class: 'color-picker' %>
+                                </div>
+                                <div class="cell-column">
+                                  <label>Text Font Family</label>
+                                  <%= f.text_field :text_font_family, class: 'font-picker' %>      
+                                </div>                                 
+                           </div>
+
+                           <div class="cell-container">
+                                <div class="cell-column">
+                                  <label>Button Font Family</label>
+                                  <%= f.text_field :button_font_family, class: 'font-picker' %>
+                                </div>   
+                                <div class="cell-column">
+                                  <label>Button Color</label>
+                                  <%= f.text_field :button_color, class: 'color-picker' %>
+                                </div>                           
+                           </div>
+                           <div class="cell-container">
+                                <div class="cell-column">
+                                </div> 
+                                <div class="cell-column">
+                                  <label>Button Font Color</label>
+                                  <%= f.text_field :button_font_color, class: 'color-picker' %>
+                                </div> 
+                           </div>  
+                        </div>
+                    </div>
+                <% end %>
+
+                <!-- CONTENT END -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  

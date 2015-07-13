@@ -1,0 +1,29 @@
+<div class="section-listing">
+    <div class="section-options">
+    		<%= render "shared/navigation" %>
+
+        <div class="section-content">
+            <div class="section-row">
+            	<table class="table-section">
+            		<thead>
+            			<tr>
+            			 <th class="sortable">Product Recommended</th>
+            				<th class="sortable">Sender - Customer </th>
+            				<th class="sortable">Recipeint - Friend</th>
+            			</tr>
+            		</thead>
+            		<tbody>
+            			<% @recommendations.each do |recommendation| %>
+	            			<tr>
+	            				<td><a href="<%= recommendation.product.url%>" target="_blank"><%= recommendation.product.title %></a></td>
+	            				<td><%= recommendation.customer.name %></td>
+	            				<td><%= recommendation.recipient_email %></td>
+	            			</tr>
+            			<% end %>
+            		</tbody>
+            	</table>
+            </div>
+        </div>
+    </div>
+</div> 
+

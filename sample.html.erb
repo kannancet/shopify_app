@@ -1,0 +1,53 @@
+<style type="text/css">
+
+  .dynamic_recommendation_class{ 
+    display: inline-block;
+    padding: 20px;
+    background-color: <%= @recommend_form.border_color %>;
+    border-style: solid;
+    border-width: <%= @recommend_form.border_size %>px;
+    border-color: <%= @recommend_form.border_color %>;
+    color: <%= @recommend_form.text_color %>;
+    font-family: <%= @recommend_form.text_font_family %>;
+    width: <%= @recommend_form.field_width %>px;
+  }
+
+  .dynamic_recommendation_class .recommend-btn{
+    font-family: <%= @recommend_form.button_font_family %> !important;
+    background-color: <%= @recommend_form.button_color %> !important;
+    color: <%= @recommend_form.button_font_color %> !important;
+  }
+
+</style>
+
+<%= form_for @recommendation, url: "#{BASE_URL}/recommendations",  html: {class: 'dynamic_recommendation_class'} do |f| %>
+  
+  <%= hidden_field_tag "recommendation[customer_name]", ""%>
+  <%= hidden_field_tag "recommendation[customer_email]", ""%>
+
+  <div class="cell-container">
+       <div class="cell-container">
+            <div class="cell-column">
+              <label>Email of Friend</label>
+              <%= f.text_field :recipient_email %>
+            </div>
+            <div class="cell-column">
+              <label>Message</label>
+              <%= f.text_area :comment, class: 'recmnd_comment' %>
+            </div>   
+             <%= f.submit "Submit", class: "btn primary recommend-btn " %>                       
+      </div>
+  </div>
+
+<% end %>
+
+<script type="text/javascript">
+  
+    $(".dynamic_recommendation_class").on('submit', function(){
+      name = $("#customer_name").val();
+      email = $("#customer_email").val();
+      $("#recommendation[customer_name]").val(name);
+      $("#recommendation[customer_email]").val(email);
+      return true
+    })
+</script>

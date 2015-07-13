@@ -1,0 +1,50 @@
+<div class="section-listing">
+    <div class="section-options">
+    		<%= render "shared/navigation" %>
+    		
+        <div class="section-content">
+            <div class="section-row">
+            	<table class="table-section">
+            		<thead>
+            			<tr>
+            			 <th class="sortable">Customer Name</th>
+            				<th class="sortable">Customer Email</th>
+            				<th class="sortable">Total Recommendations</th>
+            				<th class="sortable">Details</th>
+            			</tr>
+            		</thead>
+            		<tbody>
+            			<% @customers.each do |customer| %>
+	            			<tr>
+	            				<td><%= customer.name %></td>
+	            				<td><%= customer.email %></td>
+	            				<td><%= customer.recommendations.count %></td>
+	            				<td>
+                                <table class="table-section">
+                                <thead>
+                                    <tr>
+                                        <th class="sortable">No.</th>
+                                       <th class="sortable">Friend Email</th>
+                                        <th class="sortable">Product URL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                					<% customer.recommendations.each_with_index do |recommendation, index| %>
+                                        <tr>
+                                        <td><%= index + 1 %></td>
+                                        <td><%= recommendation.recipient_email %></td>
+                                        <td><a href="<%= recommendation.product.url %>" target="_blank">view product</a></td>
+                                        </tr>
+                					<% end %>
+                                </tbody>
+                                </table>
+	            				</td>
+	            			</tr>
+            			<% end %>
+            		</tbody>
+            	</table>
+            </div>
+        </div>
+    </div>
+</div> 
+

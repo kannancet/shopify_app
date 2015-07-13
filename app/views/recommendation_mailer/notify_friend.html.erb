@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title><%= @customer.name %> recommends you the product <%= @product.title %></title>
+        <style>
+            table, td, th {
+                border: 1px solid green;
+            }
+
+            th {
+                background-color: green;
+                color: white;
+            }
+        </style>
+	</head>	
+	<body>
+
+        <div>
+            <p><%= @customer.name %> recommends you the product <%= @product.title %></p>
+            <div>
+            <table>
+            <thead>
+                <tr>
+                    <th>Comment</th>
+                    <th>Product Name</th>
+                    <th>Product price</th>
+                    <th>Product description</th>
+                    <th>Product URL</th>
+                </tr>
+            </thead>
+                    <tr>
+                        <td><%= @recommendation.comment %></td>
+                        <td><%= @product.title %></td>
+                        <td><%= raw(@product.price).html_safe %>$</td>
+                        <td>
+                        <a href="<%= @product.url %>" target="_blank">
+                            view product
+                        </a>
+                        </td>      
+                    </tr>
+            </table>
+            </div>
+        </div>
+                
+	</body>	
+</html>
