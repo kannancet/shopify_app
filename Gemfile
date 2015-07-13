@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.2.2"
+ruby "2.2.1"
 
 gem "rails", "4.2.2"
 
@@ -32,5 +32,13 @@ gem 'jquery-minicolors-rails'
 gem 'kaminari'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'jbuilder'
+
+group :development do
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
+end
 
 

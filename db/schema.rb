@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150713095732) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,6 +66,6 @@ ActiveRecord::Schema.define(version: 20150713095732) do
     t.datetime "updated_at"
   end
 
-  add_index "shops", ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
+  add_index "shops", ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true, using: :btree
 
 end
