@@ -58,7 +58,7 @@ module EmbededApp
     config.assets.version = '1.0'
     config.middleware.use Rack::Cors do
       allow do
-        origins '52.24.103.172'
+        origins '*'
         resource %r{/users/\d+.json},
           :headers => ['Origin', 'Accept', 'Content-Type'],
           :methods => [:put, :delete, :post, :get]
