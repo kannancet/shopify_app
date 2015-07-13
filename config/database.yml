@@ -27,4 +27,4 @@ staging:
 
 production:
   <<: *default
-  database: shopify_staging
+  database: shopify_production
